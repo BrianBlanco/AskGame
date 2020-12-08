@@ -1,0 +1,77 @@
+.login-container {
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    font-family: Nunito, Roboto, Arial, sans-serif;
+    margin: 4em auto;
+    padding: 3em 2em 2em 2em;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+    width: 50%;
+}
+
+.login-separator {
+    margin: auto;
+    width: 100%;
+    padding-bottom: 30px;
+    margin-bottom: 10px;
+    color: rgb(255, 0, 0);
+}
+
+.login-input {
+    position: relative;
+    width: 50%;
+    margin-bottom: 45px;
+    width: 95%;
+}
+
+.login-input > input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #777;
+    box-shadow: none !important;
+}
+
+.login-input input:focus {
+    border-color: blue;
+    border-width: medium medium 2px;
+}
+
+.login-input label {
+    position: absolute;
+    pointer-events: none;
+    top: 18px;
+    left: 10px;
+    transition: 0.2s ease all;
+}
+
+.login-input input:focus>label,
+.login-input input:not(:focus):valid>label {
+    top: 0px;
+    left: 10px;
+    font-size: 13px;
+    opacity: 1;
+}
+
+.login-submit {
+    background: rgb(168, 177, 214);
+    border-radius: 3px;
+    border: 0px;
+    color: white;
+    height: 48px;
+    width: 300px;
+    padding: 0px 30px;
+    font-size: 18px;
+    font-family: Nunito, Roboto, Arial, sans-serif;
+}
+
+.login-submit:focus {
+    outline: 1px solid black;
+}
+
+.login-signup {
+    margin: auto;
+    width: 80%;
+    padding-top: 40px;
+}
