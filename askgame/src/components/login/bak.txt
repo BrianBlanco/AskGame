@@ -1,0 +1,39 @@
+
+<div className="login-container">
+    <div className="login-input">
+        <input type="text" className={this.state.errors.username ? "error" : ""}
+            onChange={(e) => this.setState({ username: e.target.value })}
+            onBlur={(e) => this.checkInput(e, "username")}
+            required />
+        <label>Username</label>
+    </div>
+    <div className="login-input">
+        <input type="text"
+            onChange={(e) => this.setState({ password: md5(e.target.value) })}
+            onBlur={(e) => this.checkInput(e, "password")}
+            required />
+        <label>Password</label>
+    </div>
+    {this.state.showSignUp &&
+        <div>
+            <div className="login-input">
+                <input type="text" onChange={(e) => this.setState({ repeatPassword: md5(e.target.value) })} required />
+                <label>Repeat Password</label>
+            </div>
+            <div className="login-input">
+                <input type="text"
+                    onChange={(e) => this.setState({ email: e.target.value })}
+                    onBlur={(e) => this.checkInput(e, "email")}
+                    required />
+                <label>Email</label>
+            </div>
+        </div>
+    }
+
+    <div>
+        <button className="login-submit" onClick={() => this.login()}>{this.state.showSignUp ? "Sign Up" : "Login"}</button>
+    </div>
+    <div className="login-signup">{this.state.showSignUp ? "Already have an account?" : "Don't have an account?"}
+        <b style={{ color: "rgb(99, 115, 182)", cursor: "pointer" }} onClick={() => this.toogleSignUp()}> {this.state.showSignUp ? "Login" : "Sign Up"}</b>
+    </div>
+</div>

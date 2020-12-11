@@ -1,5 +1,9 @@
+/* MAIN LOGIN CONTAINER */
 .login-container {
-    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+
     text-align: center;
     font-family: Nunito, Roboto, Arial, sans-serif;
     margin: 4em auto;
@@ -7,17 +11,9 @@
     background: #fafafa;
     border: 1px solid #ebebeb;
     box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
-    width: 50%;
 }
 
-.login-separator {
-    margin: auto;
-    width: 100%;
-    padding-bottom: 30px;
-    margin-bottom: 10px;
-    color: rgb(255, 0, 0);
-}
-
+/* LOGIN TEXTBOXES */
 .login-input {
     position: relative;
     width: 50%;
@@ -26,23 +22,20 @@
 }
 
 .login-input > input {
+    border-width: 0px 0px 1px 10px;
     width: 100%;
     outline: none;
-    border: none;
-    border-bottom: 1px solid #777;
-    box-shadow: none !important;
+    
 }
 
 .login-input input:focus {
-    border-color: blue;
-    border-width: medium medium 2px;
 }
 
 .login-input label {
     position: absolute;
     pointer-events: none;
     top: 18px;
-    left: 10px;
+    left: 20px;
     transition: 0.2s ease all;
 }
 
@@ -54,13 +47,23 @@
     opacity: 1;
 }
 
+/* ERROR ON INPUT */
+
+.error {
+    border-radius: 5px 5px 0px 5px;
+    border-style: solid;
+    border-color: rgb(236, 89, 144);
+}
+
+/*  LOGIN SUBMIT BUTTON */
+
 .login-submit {
     background: rgb(168, 177, 214);
     border-radius: 3px;
     border: 0px;
     color: white;
     height: 48px;
-    width: 300px;
+    width: 30vw;
     padding: 0px 30px;
     font-size: 18px;
     font-family: Nunito, Roboto, Arial, sans-serif;
@@ -74,4 +77,16 @@
     margin: auto;
     width: 80%;
     padding-top: 40px;
+}
+
+/* MOBILE VERSION */
+@media (max-width: 600px) {
+
+    .login-container {
+        margin-top: 5vh;
+        left: 30%;
+        transform: translate(-20%, 0);
+    }
+
+
 }

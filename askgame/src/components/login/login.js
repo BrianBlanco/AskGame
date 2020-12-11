@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LoginModal from "react-login-modal";
 
 import './login.css';
 
@@ -7,13 +8,29 @@ const md5 = require('md5');
 
 export default class login extends Component {
 
+
     constructor() {
         super();
 
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            repeatPassword: "",
+            email: "",
+            showSignUp: false,
+            patterns: {
+                username: /^[a-zA-Z]+$/,
+                password: /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/,
+                email: /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/,
+            },
+            errors: {
+                username: false,
+                password: false,
+                repeatPassword: false,
+                email: false
+            }
         }
+
     }
 
     login = () => {
@@ -30,28 +47,20 @@ export default class login extends Component {
     }
 
 
+    toogleSignUp = () => {
+        this.setState({ showSignUp: !this.state.showSignUp });
+    }
+
+    checkInput = (e, position) => {
+        console.log(e.target.value);
+        console.log(e.target.value.match(this.state.patterns[position]) != null);
+    }
+
     render() {
         return (
             <div>
-                <div className="login-container">
-                    <div className="login-separator">
-                    </div>
-                    <div className="login-input">
-                        <input type="text" onChange={(e) => this.setState({ username: e.target.value })} required />
-                        <label>Username</label>
-                    </div>
-                    <div className="login-input">
-                        <input type="text" onChange={(e) => this.setState({ password: md5(e.target.value) })} required />
-                        <label>Password</label>
-                    </div>
-                    <div>
-                        <button className="login-submit" onClick={() => this.login()}>Login</button>
-                    </div>
-                    <div className="login-signup"> Don't have an account?
-                        <b style={{ color: "rgb(99, 115, 182)", cursor: "pointer" }}>Sign Up</b>
-                    </div>
-                </div>
-
+                <LoginModal />
+                <div></div>
             </div>
         )
     }
